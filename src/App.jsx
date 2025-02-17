@@ -1,27 +1,29 @@
-import React, { useState, createContext } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import React, { useState, createContext } from 'react'; // Import React, useState for state management, and createContext for creating a context
+import reactLogo from './assets/react.svg'; // Import React logo image (not used in this snippet)
+import viteLogo from '/vite.svg'; // Import Vite logo image (not used in this snippet)
+import './App.css'; // Import CSS for styling the app
 
-import { Nav } from './components/nav'
+import { Nav } from './components/nav'; // Import Nav component from the components directory
 
-// Create the context
+// Create a context to share state across components
 export const Context = createContext();
 
 function App() {
-
-  const [signedIn, setSignedIn] = useState(false) // State to track if the user is signed in
+  // Initialize state to track if the user is signed in, default is false
+  const [signedIn, setSignedIn] = useState(false);
 
   return (
-    <Context.Provider value={{ signedIn, setSignedIn }}> {/* Provide the signedIn state and setSignedIn function to the context */}
-      <Nav /> {/* Nav component: Renders the navigation bar and includes the SignInButton component */}
+    // Provide the context value to all child components
+    <Context.Provider value={{ signedIn, setSignedIn }}>
+      <Nav /> // Render the Nav component, which might include navigation links and a sign-in button
       <h1>
         {
-          signedIn ? "Signed Out" : "Signed In" // Display "Signed Out" if signedIn is true, otherwise display "Signed In"
+          // Conditionally render text based on the signedIn state
+          signedIn ? "Signed Out" : "Signed In"
         }
       </h1>
     </Context.Provider>
-  )
+  );
 }
 
-export default App
+export default App; // Export the App component as the default export
