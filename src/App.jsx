@@ -15,7 +15,7 @@ function App() {
   return (
     // Provide the context value to all child components
     <Context.Provider value={{ signedIn, setSignedIn }}>
-      <Nav /> // Render the Nav component, which might include navigation links and a sign-in button
+      <Nav /> {/* Render the Nav component */}
       <h1>
         {
           // Conditionally render text based on the signedIn state
